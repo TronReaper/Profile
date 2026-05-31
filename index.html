@@ -35,7 +35,6 @@
             position: relative;
         }
 
-        /* Subtle animated background */
         body::before {
             content: '';
             position: fixed;
@@ -46,7 +45,6 @@
             z-index: -1;
         }
 
-        /* Floating particles */
         .particles {
             position: fixed;
             inset: 0;
@@ -71,7 +69,6 @@
             100% { transform: translateY(-10vh) scale(1); }
         }
 
-        /* Main floating container */
         .main-card {
             position: relative;
             z-index: 1;
@@ -93,7 +90,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Profile header */
         .profile {
             text-align: center;
             margin-bottom: 30px;
@@ -105,6 +101,7 @@
             margin-bottom: 15px;
         }
 
+        /* Square image becomes circle automatically */
         .avatar {
             width: 90px;
             height: 90px;
@@ -167,7 +164,6 @@
             letter-spacing: 1px;
         }
 
-        /* Tab buttons */
         .tabs {
             display: flex;
             gap: 10px;
@@ -206,10 +202,17 @@
             box-shadow: 0 4px 20px rgba(30, 58, 95, 0.4);
         }
 
-        /* Content area */
         .content {
             min-height: 200px;
+        }
+
+        .content-section {
+            display: none;
             animation: fadeIn 0.4s ease;
+        }
+
+        .content-section.active {
+            display: block;
         }
 
         @keyframes fadeIn {
@@ -217,16 +220,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .content-section {
-            display: none;
-        }
-
-        .content-section.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        /* Section styling */
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
@@ -247,84 +240,104 @@
             font-size: 1rem;
         }
 
-        .about-text .highlight {
-            color: var(--accent-glow);
-            font-weight: 600;
-        }
-
-        .about-text .miyabi {
-            color: var(--miyabi);
-            font-weight: 600;
-        }
-
-        /* ZZZ Stats */
-        .zzz-level {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
+        /* Game cards */
+        .game-card {
             background: rgba(30, 58, 95, 0.1);
-            border-radius: 16px;
             border: 1px solid rgba(30, 58, 95, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
         }
 
-        .zzz-level .label {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .zzz-level .level-num {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--text), var(--accent-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .level-bar {
-            width: 100%;
-            height: 6px;
+        .game-card:hover {
             background: rgba(30, 58, 95, 0.2);
-            border-radius: 3px;
-            margin-top: 12px;
-            overflow: hidden;
+            border-color: rgba(30, 58, 95, 0.4);
+            transform: scale(1.02);
         }
 
-        .level-bar-fill {
-            height: 100%;
-            width: 75%;
-            background: linear-gradient(90deg, var(--accent), var(--accent-glow));
-            border-radius: 3px;
-            animation: fillBar 1.5s ease;
+        .game-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
-        @keyframes fillBar {
-            from { width: 0; }
+        .game-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
         }
 
-        .stat-row {
+        .game-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .game-name span {
+            display: block;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        .game-stat {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(30, 58, 95, 0.15);
+            align-items: center;
+            padding: 8px 0;
+            border-top: 1px solid rgba(30, 58, 95, 0.15);
+        }
+
+        .game-stat-label {
             color: var(--text-dim);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-
-        .stat-row span:last-child {
+        .game-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--text);
-            font-weight: 600;
         }
 
-        /* Minecraft */
-        .mc-block {
+        .full-details-btn {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+            border: none;
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .full-details-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 58, 95, 0.4);
+        }
+
+        .full-details-btn i {
+            margin-left: 6px;
+        }
+
+        /* Minecraft simple */
+        .mc-simple {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -332,40 +345,29 @@
             background: rgba(126, 200, 80, 0.05);
             border: 1px solid rgba(126, 200, 80, 0.15);
             border-radius: 12px;
-            margin-bottom: 15px;
         }
 
-        .mc-block i {
+        .mc-simple i {
             font-size: 28px;
             color: #7ec850;
         }
 
-        .mc-block div {
+        .mc-simple div {
             color: var(--text-dim);
             font-size: 0.95rem;
-            line-height: 1.5;
         }
 
-        .mc-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .mc-tag {
-            background: rgba(126, 200, 80, 0.1);
-            border: 1px solid rgba(126, 200, 80, 0.2);
+        .mc-simple .mc-name {
             color: #7ec850;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
         }
 
-        /* Social */
+        /* Social grid */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
@@ -374,7 +376,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            padding: 18px 10px;
+            padding: 20px 10px;
             background: rgba(30, 58, 95, 0.1);
             border: 1px solid rgba(30, 58, 95, 0.2);
             border-radius: 14px;
@@ -392,7 +394,7 @@
         }
 
         .social-btn i {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             transition: transform 0.3s;
         }
 
@@ -401,12 +403,40 @@
         }
 
         .social-btn span {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* Footer */
+        /* Discord info style */
+        .discord-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(88, 101, 242, 0.08);
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .discord-info i {
+            font-size: 28px;
+            color: #5865f2;
+        }
+
+        .discord-info div {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .discord-info .dc-user {
+            color: #5865f2;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+        }
+
         .footer {
             text-align: center;
             margin-top: 25px;
@@ -428,7 +458,6 @@
             50% { transform: scale(1.2); }
         }
 
-        /* Responsive */
         @media (max-width: 480px) {
             .main-card {
                 padding: 25px 20px;
@@ -444,12 +473,12 @@
                 font-size: 0.8rem;
             }
 
-            .social-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .profile h1 {
                 font-size: 1.5rem;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -461,14 +490,14 @@
         <!-- Profile -->
         <div class="profile">
             <div class="avatar-wrap">
-                <!-- Replace with: <img src="avatar.png" class="avatar" alt="TronReaper"> -->
+                <!-- Replace this placeholder with your image -->
                 <div class="avatar-placeholder">
                     <i class="fas fa-user"></i>
                 </div>
+                <!-- <img src="avatar.png" class="avatar" alt="TronReaper"> -->
                 <div class="status-dot"></div>
             </div>
             <h1>TRONREAPER</h1>
-            <div class="tag">Chill vibes & pixel dreams</div>
         </div>
 
         <!-- Tab Buttons -->
@@ -476,14 +505,11 @@
             <button class="tab-btn active" onclick="showTab('about')">
                 <i class="fas fa-user"></i> About
             </button>
-            <button class="tab-btn" onclick="showTab('zzz')">
-                <i class="fas fa-bolt"></i> ZZZ
-            </button>
-            <button class="tab-btn" onclick="showTab('minecraft')">
-                <i class="fas fa-cube"></i> MC
+            <button class="tab-btn" onclick="showTab('games')">
+                <i class="fas fa-gamepad"></i> Games
             </button>
             <button class="tab-btn" onclick="showTab('social')">
-                <i class="fas fa-link"></i> Links
+                <i class="fas fa-link"></i> Socials
             </button>
         </div>
 
@@ -491,63 +517,52 @@
         <div class="content">
             <!-- About -->
             <div id="about" class="content-section active">
-                <div class="section-title">
-                    <i class="fas fa-user-astronaut"></i> ABOUT ME
-                </div>
                 <div class="about-text">
-                    Hey! I'm <span class="highlight">TronReaper</span> — a gamer who finds peace in the chaos. I main <span class="miyabi">Zenless Zone Zero</span> and lose hours building in <span class="highlight">Minecraft</span>.<br><br>
-                    Inspired by <span class="miyabi">Miyabi's calm energy</span>, I bring focus and chill to every session. No rage, just good vibes and steady improvement. ☕
+                    what is life
                 </div>
             </div>
 
-            <!-- ZZZ -->
-            <div id="zzz" class="content-section">
-                <div class="section-title">
-                    <i class="fas fa-bolt"></i> ZENLESS ZONE ZERO
+            <!-- Games -->
+            <div id="games" class="content-section">
+                <!-- ZZZ -->
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">⚡</div>
+                        <div class="game-name">
+                            Zenless Zone Zero
+                            <span>Inter-Knot Operations</span>
+                        </div>
+                    </div>
+                    <div class="game-stat">
+                        <span class="game-stat-label">Agents Owned</span>
+                        <span class="game-stat-value">30</span>
+                    </div>
+                    <a href="https://act.hoyolab.com/app/zzz-game-record/index.html?hyl_presentation_style=fullscreen&bbs_auth_required=true&game_id=8&user_id=251390237&lang=en-us&bbs_theme=dark&bbs_theme_device=1&utm_source=share&utm_medium=link&utm_campaign=web#/zzz" class="full-details-btn" target="_blank">
+                        Full Details <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
-                <div class="zzz-level">
-                    <div class="label">Inter-Knot Level</div>
-                    <div class="level-num">45</div>
-                    <div class="level-bar">
-                        <div class="level-bar-fill"></div>
+
+                <!-- Minecraft -->
+                <div class="mc-simple">
+                    <i class="fas fa-cube"></i>
+                    <div>
+                        <div class="mc-name">TronReaperMC</div>
+                        <div>Minecraft Username</div>
                     </div>
                 </div>
-                <div class="stat-row">
-                    <span>Hollow Exploration</span>
-                    <span>82%</span>
-                </div>
-                <div class="stat-row">
-                    <span>Agents Owned</span>
-                    <span>12</span>
-                </div>
-                <div class="stat-row">
-                    <span>Main Story</span>
-                    <span>Chapter 4</span>
-                </div>
             </div>
 
-            <!-- Minecraft -->
-            <div id="minecraft" class="content-section">
-                <div class="section-title">
-                    <i class="fas fa-cube"></i> MINECRAFT
-                </div>
-                <div class="mc-block">
-                    <i class="fas fa-cube"></i>
-                    <div>Survival builder at heart. Crafting a Japanese-inspired mountain village right now!</div>
-                </div>
-                <div class="mc-tags">
-                    <span class="mc-tag">Survival</span>
-                    <span class="mc-tag">Building</span>
-                    <span class="mc-tag">Redstone</span>
-                    <span class="mc-tag">Exploration</span>
-                </div>
-            </div>
-
-            <!-- Social -->
+            <!-- Socials -->
             <div id="social" class="content-section">
-                <div class="section-title">
-                    <i class="fas fa-share-nodes"></i> CONNECT
+                <!-- Discord info -->
+                <div class="discord-info">
+                    <i class="fab fa-discord"></i>
+                    <div>
+                        <div class="dc-user">tronreaper</div>
+                        <div>Discord Username</div>
+                    </div>
                 </div>
+
                 <div class="social-grid">
                     <a href="#" class="social-btn" target="_blank">
                         <i class="fab fa-twitch" style="color: #9146ff;"></i>
@@ -562,16 +577,8 @@
                         <span>TWITTER</span>
                     </a>
                     <a href="#" class="social-btn" target="_blank">
-                        <i class="fab fa-discord" style="color: #5865f2;"></i>
-                        <span>DISCORD</span>
-                    </a>
-                    <a href="#" class="social-btn" target="_blank">
                         <i class="fab fa-instagram" style="color: #e4405f;"></i>
-                        <span>INSTA</span>
-                    </a>
-                    <a href="#" class="social-btn" target="_blank">
-                        <i class="fab fa-tiktok" style="color: #fff;"></i>
-                        <span>TIKTOK</span>
+                        <span>INSTAGRAM</span>
                     </a>
                 </div>
             </div>
@@ -584,26 +591,17 @@
     </div>
 
     <script>
-        // Tab switching
         function showTab(tabName) {
-            // Hide all sections
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
-            
-            // Remove active from all buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
-            // Show selected section
             document.getElementById(tabName).classList.add('active');
-            
-            // Activate clicked button
             event.target.closest('.tab-btn').classList.add('active');
         }
 
-        // Floating particles
         function createParticles() {
             const container = document.getElementById('particles');
             for (let i = 0; i < 20; i++) {
@@ -619,12 +617,6 @@
         }
 
         createParticles();
-
-        // Update level function
-        function updateLevel(level) {
-            document.querySelector('.level-num').textContent = level;
-        }
-        // updateLevel(50); // Uncomment and change number to update
     </script>
 </body>
 </html>
